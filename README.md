@@ -1,8 +1,9 @@
 # KATAS
 
-Repository of the katas I have done. Each kata is in a different PR with a commit for each step to solve it.
+Repository of the katas I have done. 
 
-For more information [here](./docs/home)
+Each kata is in a different PR with a commit for each step to solve it.
+
 
 
 ## Requirements
