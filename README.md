@@ -20,7 +20,7 @@ asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
 asdf install
 ~~~~
 
-And compile project:
+And install project environmnet:
 
 ~~~bash
 poetry install
