@@ -24,3 +24,12 @@ And compile project:
 ~~~bash
 poetry install
 ~~~~
+
+
+## Run test
+
+Execute below command to run tests of the project:
+
+~~~bash
+poetry run pytest 
+~~~
