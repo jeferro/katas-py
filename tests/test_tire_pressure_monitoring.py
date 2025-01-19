@@ -1,29 +1,33 @@
-
-from tests.stub_alarm import StubAlarm
+from src.alarm import Alarm
+from tests.stub_sensonr import StubSensor
 
 
 def test_alarm_is_off_by_default():
-    stub_alarm = StubAlarm(10.0)
+    stub_sensor = StubSensor(10.0)
+    alarm = Alarm(stub_sensor)
 
-    assert not stub_alarm.is_alarm_on
+    assert not alarm.is_alarm_on
 
-def test_should_alarm_when_pressure_is_equals_to_or_less_than_or_e_16():
-    stub_alarm = StubAlarm(16.0)
+def test_should_alarm_when_pressure_is_equals_to_or_less_than_17():
+    stub_sensor = StubSensor(16.0)
+    alarm = Alarm(stub_sensor)
 
-    stub_alarm.check()
+    alarm.check()
 
-    assert stub_alarm.is_alarm_on
+    assert alarm.is_alarm_on
 
-def test_should_alarm_when_pressure_is_equals_to_or_greater_than_22():
-    stub_alarm = StubAlarm(22.0)
+def test_should_alarm_when_pressure_is_equals_to_or_greater_than_21():
+    stub_sensor = StubSensor(22.0)
+    alarm = Alarm(stub_sensor)
 
-    stub_alarm.check()
+    alarm.check()
 
-    assert stub_alarm.is_alarm_on
+    assert alarm.is_alarm_on
 
 def test_should_not_alarm_when_pressure_is_18():
-    stub_alarm = StubAlarm(18.0)
+    stub_sensor = StubSensor(18.0)
+    alarm = Alarm(stub_sensor)
 
-    stub_alarm.check()
+    alarm.check()
 
-    assert not stub_alarm.is_alarm_on
+    assert not alarm.is_alarm_on

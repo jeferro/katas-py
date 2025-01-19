@@ -8,9 +8,9 @@ class RandomSensor(Sensor):
     # The reading of the pressure value from the sensor is simulated in this implementation.
     # Because the focus of the exercise is on the other class.
 
-    _OFFSET = 16
+    _OFFSET = 16.0
         
-    def pop_next_pressure_psi_value(self):
+    def pop_next_pressure_psi_value(self) -> float:
         pressure_telemetry_value = self._sample_pressure()
         return RandomSensor._OFFSET + pressure_telemetry_value
 

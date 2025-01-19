@@ -1,7 +1,7 @@
-from src.alarm import Alarm
+from src.sensor import Sensor
 
 
-class StubAlarm(Alarm):
+class StubSensor(Sensor):
 
     def __init__(self,
                  value: float):
@@ -9,6 +9,6 @@ class StubAlarm(Alarm):
         self.value = value
 
 
-    def _pop_next_pressure_psi_value(self):
+    def pop_next_pressure_psi_value(self) -> float:
         return self.value
 
