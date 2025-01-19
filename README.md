@@ -1,8 +1,8 @@
-# KATAS
+# TIRE PRESSURE
 
-Repository of the katas I have done. 
+Write the unit tests for the Alarm class. 
 
-Each kata is in a different PR with a commit for each step to solve it.
+The Alarm class is designed to monitor tire pressure and set an alarm if the pressure falls outside of the expected range. The Sensor class provided for the exercise fakes the behaviour of a real tire sensor, providing random but realistic values.
 
 
 
