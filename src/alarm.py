@@ -1,11 +1,11 @@
-from src.sensor import Sensor
+from src.random_sensor import RandomSensor
 
 class Alarm(object):
 
     def __init__(self):
         self._low_pressure_threshold = 17
         self._high_pressure_threshold = 21
-        self._sensor = Sensor()
+        self._sensor = RandomSensor()
         self._is_alarm_on = False
         
     def check(self):
