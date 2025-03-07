@@ -7,7 +7,7 @@ class StringCalculator:
         if not numbers:
             return 0
 
-        values = numbers.split(",")
+        values = numbers.replace(f'\n', ',').split(",")
 
         return self._sum_values(values)
 
