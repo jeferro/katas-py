@@ -5,3 +5,6 @@ class EuropeanParrot(Parrot):
 
     def __init__(self, number_of_coconuts: float, voltage: float, nailed: bool):
         super().__init__(ParrotType.EUROPEAN, number_of_coconuts, voltage, nailed)
+
+    def speed(self) -> float:
+        return self._base_speed()
