@@ -81,7 +81,8 @@ class StringCalculator:
         if negative_numbers:
             raise RuntimeError(f'Invalid negative numbers: {negative_numbers}')
 
-    def _filter_huge_numbers(self, numbers):
+    @staticmethod
+    def _filter_huge_numbers(numbers):
         filtered_numbers = []
 
         for number in numbers:
