@@ -1,8 +1,6 @@
 from src.string_calculator import StringCalculator
 
 
-
-
 def test_when_empty_string_then_return_zero():
     string_calculator = StringCalculator()
 
@@ -20,3 +18,15 @@ def test_when_string_with_two_values_then_return_sum():
     string_calculator = StringCalculator()
 
     assert string_calculator.add(f"1,2") == 3
+
+
+def test_when_string_with_three_values_then_return_sum():
+    string_calculator = StringCalculator()
+
+    assert string_calculator.add(f"1,2,3") == 6
+
+
+def test_when_string_with_four_values_then_return_sum():
+    string_calculator = StringCalculator()
+
+    assert string_calculator.add(f"1,2,3,4") == 10
