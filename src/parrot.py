@@ -19,15 +19,6 @@ class Parrot:
         self._voltage = voltage
         self._nailed = nailed
 
-    def cry(self) -> str:
-        match self._type:
-            case ParrotType.EUROPEAN:
-                return "Sqoork!"
-            case ParrotType.AFRICAN:
-                return "Sqaark!"
-            case ParrotType.NORWEGIAN_BLUE:
-                return "Bzzzzzz" if self._voltage > 0 else "..."
-
     @staticmethod
     def _base_speed():
         return 12.0

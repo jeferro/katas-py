@@ -12,3 +12,6 @@ class AfricanParrot(Parrot):
     @staticmethod
     def _load_factor():
         return 9.0
+
+    def cry(self) -> str:
+        return "Sqaark!"
