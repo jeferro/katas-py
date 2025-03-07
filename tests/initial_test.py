@@ -1,3 +1,5 @@
+import pytest
+
 from src.string_calculator import StringCalculator
 
 
@@ -42,4 +44,14 @@ def test_allow_different_delimiters():
     string_calculator = StringCalculator()
 
     assert string_calculator.add(f"//;\n1;2") == 3
+
+def test_not_allowed_negative_numbers():
+    with pytest.raises(RuntimeError) as cause:
+        string_calculator = StringCalculator()
+        string_calculator.add(f"//;\n-1;-2;3")
+
+    assert "Invalid negative numbers: [-1, -2]" in str(cause.value)
+
+
+
 

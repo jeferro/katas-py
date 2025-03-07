@@ -8,43 +8,56 @@ DELIMITER_PATTERN = '^//(.{1})'
 
 class StringCalculator:
 
-    def add(self, numbers: str) -> int:
-        if not numbers:
+    def add(self, numbers_str: str) -> int:
+        if not numbers_str:
             return 0
 
-        int_numbers = self._map_numbers_to_int(numbers)
+        numbers = self._map_numbers_str_to_int(numbers_str)
 
-        return IntUtils.sum(int_numbers)
+        self._ensure_not_negative_numbers(numbers)
 
-    def _map_numbers_to_int(self, numbers) -> List[int]:
-        if not self._is_delimiter_declared(numbers):
-            return self._map_values_using_delimiter(numbers, DEFAULT_DELIMITER)
+        return IntUtils.sum(numbers)
 
-        delimiter = self._map_delimiter(numbers)
-        numbers_without_delimiter = numbers.replace(f'//{delimiter}\n', '')
+    def _map_numbers_str_to_int(self, numbers_str) -> List[int]:
+        if not self._is_delimiter_declared(numbers_str):
+            return self._map_values_using_delimiter(numbers_str, DEFAULT_DELIMITER)
+
+        delimiter = self._map_delimiter(numbers_str)
+        numbers_without_delimiter = numbers_str.replace(f'//{delimiter}\n', '')
 
         return self._map_values_using_delimiter(numbers_without_delimiter, delimiter)
 
     @staticmethod
-    def _is_delimiter_declared(numbers):
-        return numbers.startswith("//")
+    def _is_delimiter_declared(numbers_str: str) -> bool:
+        return numbers_str.startswith("//")
 
     @staticmethod
-    def _map_delimiter(numbers):
-        first_line = numbers.split("\n")[0]
+    def _map_delimiter(numbers_str) -> str:
+        first_line = numbers_str.split("\n")[0]
 
         matches = re.search(DELIMITER_PATTERN, first_line)
         return matches.group(1)
 
     @staticmethod
-    def _map_values_using_delimiter(numbers: str,
+    def _map_values_using_delimiter(numbers_str: str,
                                     delimiter: str) -> List[int]:
-        split = numbers.replace(f'\n', delimiter) \
+        split = numbers_str.replace(f'\n', delimiter) \
             .split(delimiter)
 
-        result = []
+        numbers = []
 
         for item in split:
-            result.append(int(item))
+            numbers.append(int(item))
 
-        return result
+        return numbers
+
+    @staticmethod
+    def _ensure_not_negative_numbers(numbers):
+        negative_numbers = []
+
+        for number in numbers:
+            if number < 0:
+                negative_numbers.append(number)
+
+        if negative_numbers:
+            raise RuntimeError(f'Invalid negative numbers: {negative_numbers}')
