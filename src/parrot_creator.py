@@ -10,9 +10,9 @@ def create_parrot(type_of_parrot: ParrotType.EUROPEAN,
                   nailed: bool):
     match type_of_parrot:
         case ParrotType.EUROPEAN:
-            return EuropeanParrot(voltage, nailed)
+            return EuropeanParrot(voltage)
         case ParrotType.AFRICAN:
-            return AfricanParrot(number_of_coconuts, voltage, nailed)
+            return AfricanParrot(voltage, number_of_coconuts)
         case ParrotType.NORWEGIAN_BLUE:
             return NorwegianBlueParrot(voltage, nailed)
         case ParrotType.EUROPEAN:

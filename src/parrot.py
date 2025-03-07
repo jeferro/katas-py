@@ -10,10 +10,8 @@ class ParrotType(Enum):
 class Parrot:
 
     def __init__(self,
-                 voltage: float,
-                 nailed: bool):
+                 voltage: float):
         self._voltage = voltage
-        self._nailed = nailed
 
     @staticmethod
     def _base_speed():

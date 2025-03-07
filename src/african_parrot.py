@@ -3,8 +3,8 @@ from src.parrot import Parrot, ParrotType
 
 class AfricanParrot(Parrot):
 
-    def __init__(self, number_of_coconuts: float, voltage: float, nailed: bool):
-        super().__init__(voltage, nailed)
+    def __init__(self, voltage: float, number_of_coconuts: float):
+        super().__init__(voltage)
 
         self._number_of_coconuts = number_of_coconuts
 

@@ -3,8 +3,8 @@ from src.parrot import Parrot, ParrotType
 
 class EuropeanParrot(Parrot):
 
-    def __init__(self, voltage: float, nailed: bool):
-        super().__init__(voltage, nailed)
+    def __init__(self, voltage: float):
+        super().__init__(voltage)
 
     def speed(self) -> float:
         return self._base_speed()
