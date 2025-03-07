@@ -1,8 +1,10 @@
 # KATAS
 
-Repository of the katas I have done. 
+Can you spot any code smells in this code? I'll give you a clue - a spot of Pol(l)ymorphism should improve matters!
 
-Each kata is in a different PR with a commit for each step to solve it.
+Refactor this code, take small steps, run the tests often. See how small and beautiful and polymorphic you can make it.
+
+Solved by Emily Bache: https://www.youtube.com/watch?v=7IT6c8wwHs4
 
 
 
