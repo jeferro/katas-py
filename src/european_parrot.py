@@ -3,12 +3,12 @@ from src.parrot import Parrot
 
 class EuropeanParrot(Parrot):
 
-    def __init__(self, voltage: float):
-        super().__init__(voltage)
+    def __init__(self):
+        super().__init__()
 
     @staticmethod
     def create_of(voltage: float):
-        return EuropeanParrot(voltage)
+        return EuropeanParrot()
 
     def speed(self) -> float:
         return self._base_speed()

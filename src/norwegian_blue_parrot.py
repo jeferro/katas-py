@@ -6,8 +6,9 @@ MIN_SPEED = 24.0
 class NorwegianBlueParrot(Parrot):
 
     def __init__(self, voltage: float, nailed: bool):
-        super().__init__(voltage)
+        super().__init__()
 
+        self._voltage = voltage
         self._nailed = nailed
 
     @staticmethod
