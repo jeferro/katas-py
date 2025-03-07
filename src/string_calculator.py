@@ -21,20 +21,20 @@ class StringCalculator:
         return IntUtils.sum(filtered_numbers)
 
     def _map_numbers_str_to_int(self, numbers_str) -> List[int]:
-        if not self._is_delimiter_declared(numbers_str):
-            return self._map_values_using_delimiter(numbers_str, DEFAULT_DELIMITER)
+        if self._is_not_delimiter_declared(numbers_str):
+            return self._map_values_using_delimiter(numbers_str, [DEFAULT_DELIMITER])
 
-        delimiter = self._map_delimiter(numbers_str)
-        numbers_without_delimiter_line = self._remove_delimiter_line(delimiter, numbers_str)
+        delimiters = self._map_delimiters(numbers_str)
+        numbers_without_delimiter_line = self._remove_delimiter_line(numbers_str)
 
-        return self._map_values_using_delimiter(numbers_without_delimiter_line, delimiter)
-
-    @staticmethod
-    def _is_delimiter_declared(numbers_str: str) -> bool:
-        return numbers_str.startswith("//")
+        return self._map_values_using_delimiter(numbers_without_delimiter_line, delimiters)
 
     @staticmethod
-    def _map_delimiter(numbers_str) -> str:
+    def _is_not_delimiter_declared(numbers_str: str) -> bool:
+        return not numbers_str.startswith("//")
+
+    @staticmethod
+    def _map_delimiters(numbers_str) -> List[str]:
         first_line: str = numbers_str.split("\n")[0]
 
         if first_line.startswith("//["):
@@ -42,22 +42,26 @@ class StringCalculator:
         else:
             matches = re.search('^//(.{1})', first_line)
 
-        return matches.group(1)
+        return matches.group(1).replace("[", "").split("]")
 
-    def _remove_delimiter_line(self,
-                               delimiter:str,
-                               numbers_str: str):
+    @staticmethod
+    def _remove_delimiter_line(numbers_str: str) -> str:
+        index = numbers_str.index("\n") + 1
 
-        if len(delimiter) == 1:
-            return numbers_str.replace(f'//{delimiter}\n', '')
-        else:
-            return numbers_str.replace(f'//[{delimiter}]\n', '')
+        return numbers_str[index:]
 
     @staticmethod
     def _map_values_using_delimiter(numbers_str: str,
-                                    delimiter: str) -> List[int]:
-        split = numbers_str.replace(f'\n', delimiter) \
-            .split(delimiter)
+                                    delimiters: List[str]) -> List[int]:
+        first_delimiter = delimiters[0]
+        other_delimiters = delimiters[1:]
+
+        numbers_str = numbers_str.replace(f'\n', first_delimiter)
+
+        for other_delimiter in other_delimiters:
+            numbers_str = numbers_str.replace(other_delimiter, first_delimiter)
+
+        split = numbers_str.split(first_delimiter)
 
         numbers = []
 
