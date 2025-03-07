@@ -25,9 +25,9 @@ class StringCalculator:
             return self._map_values_using_delimiter(numbers_str, DEFAULT_DELIMITER)
 
         delimiter = self._map_delimiter(numbers_str)
-        numbers_without_delimiter = numbers_str.replace(f'//{delimiter}\n', '')
+        numbers_without_delimiter_line = self._remove_delimiter_line(delimiter, numbers_str)
 
-        return self._map_values_using_delimiter(numbers_without_delimiter, delimiter)
+        return self._map_values_using_delimiter(numbers_without_delimiter_line, delimiter)
 
     @staticmethod
     def _is_delimiter_declared(numbers_str: str) -> bool:
@@ -35,10 +35,23 @@ class StringCalculator:
 
     @staticmethod
     def _map_delimiter(numbers_str) -> str:
-        first_line = numbers_str.split("\n")[0]
+        first_line: str = numbers_str.split("\n")[0]
 
-        matches = re.search('^//(.{1})', first_line)
+        if first_line.startswith("//["):
+            matches = re.search('^//\[(.+)]', first_line)
+        else:
+            matches = re.search('^//(.{1})', first_line)
+
         return matches.group(1)
+
+    def _remove_delimiter_line(self,
+                               delimiter:str,
+                               numbers_str: str):
+
+        if len(delimiter) == 1:
+            return numbers_str.replace(f'//{delimiter}\n', '')
+        else:
+            return numbers_str.replace(f'//[{delimiter}]\n', '')
 
     @staticmethod
     def _map_values_using_delimiter(numbers_str: str,
