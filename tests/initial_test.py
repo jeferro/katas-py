@@ -70,3 +70,8 @@ def test_allow_multiple_delimiters():
     string_calculator = StringCalculator()
 
     assert string_calculator.add(f"//[*][%]\n1*2%3") == 6
+
+def test_allow_multiple_delimiters_with_length_longer_than_one_char():
+    string_calculator = StringCalculator()
+
+    assert string_calculator.add(f"//[***][%%]\n1***2%%3\n4") == 10
