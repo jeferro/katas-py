@@ -36,3 +36,10 @@ def test_allow_using_new_line_between_numbers():
     string_calculator = StringCalculator()
 
     assert string_calculator.add(f"1\n2,3,4") == 10
+
+
+def test_allow_different_delimiters():
+    string_calculator = StringCalculator()
+
+    assert string_calculator.add(f"//;\n1;2") == 3
+
