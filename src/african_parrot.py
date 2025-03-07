@@ -1,5 +1,7 @@
 from src.parrot import Parrot
 
+LOAD_FACTOR = 9.0
+
 
 class AfricanParrot(Parrot):
 
@@ -14,11 +16,7 @@ class AfricanParrot(Parrot):
         return AfricanParrot(voltage, number_of_coconuts)
 
     def speed(self) -> float:
-        return max(0.0, self._base_speed() - self._load_factor() * self._number_of_coconuts)
-
-    @staticmethod
-    def _load_factor():
-        return 9.0
+        return max(0.0, self._base_speed() - LOAD_FACTOR * self._number_of_coconuts)
 
     def cry(self) -> str:
         return "Sqaark!"
