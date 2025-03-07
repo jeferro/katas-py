@@ -1,4 +1,4 @@
-from src.parrot import Parrot, ParrotType
+from src.parrot import Parrot
 
 
 class NorwegianBlueParrot(Parrot):
@@ -7,6 +7,11 @@ class NorwegianBlueParrot(Parrot):
         super().__init__(voltage)
 
         self._nailed = nailed
+
+    @staticmethod
+    def create_of(voltage: float,
+                  nailed: bool):
+        return NorwegianBlueParrot(voltage, nailed)
 
     def speed(self) -> float:
         return 0 if self._nailed else self._compute_base_speed_for_voltage(self._voltage)
