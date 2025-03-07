@@ -34,7 +34,3 @@ class Parrot:
     @staticmethod
     def _base_speed():
         return 12.0
-
-    @staticmethod
-    def _load_factor():
-        return 9.0
