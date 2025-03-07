@@ -4,7 +4,7 @@ from typing import List
 from src.int_utils import IntUtils
 
 DEFAULT_DELIMITER = ","
-DELIMITER_PATTERN = '^//(.{1})'
+
 
 class StringCalculator:
 
@@ -16,7 +16,9 @@ class StringCalculator:
 
         self._ensure_not_negative_numbers(numbers)
 
-        return IntUtils.sum(numbers)
+        filtered_numbers = self._filter_huge_numbers(numbers)
+
+        return IntUtils.sum(filtered_numbers)
 
     def _map_numbers_str_to_int(self, numbers_str) -> List[int]:
         if not self._is_delimiter_declared(numbers_str):
@@ -35,7 +37,7 @@ class StringCalculator:
     def _map_delimiter(numbers_str) -> str:
         first_line = numbers_str.split("\n")[0]
 
-        matches = re.search(DELIMITER_PATTERN, first_line)
+        matches = re.search('^//(.{1})', first_line)
         return matches.group(1)
 
     @staticmethod
@@ -61,3 +63,12 @@ class StringCalculator:
 
         if negative_numbers:
             raise RuntimeError(f'Invalid negative numbers: {negative_numbers}')
+
+    def _filter_huge_numbers(self, numbers):
+        filtered_numbers = []
+
+        for number in numbers:
+            if number < 1000:
+                filtered_numbers.append(number)
+
+        return filtered_numbers

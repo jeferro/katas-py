@@ -45,6 +45,7 @@ def test_allow_different_delimiters():
 
     assert string_calculator.add(f"//;\n1;2") == 3
 
+
 def test_not_allowed_negative_numbers():
     with pytest.raises(RuntimeError) as cause:
         string_calculator = StringCalculator()
@@ -53,5 +54,7 @@ def test_not_allowed_negative_numbers():
     assert "Invalid negative numbers: [-1, -2]" in str(cause.value)
 
 
+def test_ignore_numbers_bigger_than_1000():
+    string_calculator = StringCalculator()
 
-
+    assert string_calculator.add(f"2,1001") == 2
