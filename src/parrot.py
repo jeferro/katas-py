@@ -24,7 +24,16 @@ class Parrot:
                  number_of_coconuts: float,
                  voltage: float,
                  nailed: bool):
-        return Parrot(type_of_parrot, number_of_coconuts, voltage, nailed)
+        match type_of_parrot:
+            case ParrotType.EUROPEAN:
+                return Parrot(ParrotType.EUROPEAN, number_of_coconuts, voltage, nailed)
+            case ParrotType.AFRICAN:
+                return Parrot(ParrotType.AFRICAN, number_of_coconuts, voltage, nailed)
+            case ParrotType.NORWEGIAN_BLUE:
+                return Parrot(ParrotType.NORWEGIAN_BLUE, number_of_coconuts, voltage, nailed)
+            case ParrotType.EUROPEAN:
+                raise ValueError(f'Unknown parrot: {type_of_parrot}')
+
 
     def speed(self) -> float:
         match self._type:
