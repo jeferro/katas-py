@@ -18,6 +18,9 @@ class Frame:
 
     def add_bonus(self,
                   next_frame):
+        if not isinstance(next_frame, Frame):
+            return
+
         if self.is_square():
             self.bonus = next_frame.first_attempt
 
