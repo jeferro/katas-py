@@ -1,7 +1,12 @@
 
-from src.square import Square
+from src.Cupcake import Cupcake
 
 
-def test_area_calculation():
-    square = Square(12)
-    assert square.calculate_area() == 144
+def test_cupcake_price():
+    cupcake = Cupcake()
+    assert cupcake.price() == 1.0
+
+
+def test_cupcake_name():
+    cupcake = Cupcake()
+    assert cupcake.name() == "Cupcake"
