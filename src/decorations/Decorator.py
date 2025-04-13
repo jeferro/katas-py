@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from src.Dessert import Dessert
 
 
@@ -9,10 +10,17 @@ class Decorator(Dessert, ABC):
         self.dessert = dessert
 
     def price(self) -> float:
-        return self.dessert.price() + self._decorator_price()
+        result = self.dessert.price() + self._decorator_price()
+
+        return round(result, 2)
 
     def name(self) -> str:
-        return f"{self.dessert.name()} with {self._decorator_name()}"
+        if isinstance(self.dessert, Decorator):
+            word = "and"
+        else:
+            word = "with"
+
+        return f"{self.dessert.name()} {word} {self._decorator_name()}"
 
     @abstractmethod
     def _decorator_price(self) -> float:
