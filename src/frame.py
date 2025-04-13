@@ -21,8 +21,11 @@ class Frame:
         if self.is_square():
             self.bonus = next_frame.first_attempt
 
+        if self.is_strike():
+            self.bonus = next_frame.first_attempt + next_frame.second_attempt
+
     def score(self):
-        if self.is_completed():
+        if self.second_attempt:
             return self.first_attempt + self.second_attempt + self.bonus
 
         if self.first_attempt:
@@ -43,10 +46,22 @@ class Frame:
         if not self.is_completed():
             return False
 
+        if self.first_attempt == 10:
+            return True
+
         if self.first_attempt + self.second_attempt == 10:
             return True
 
         return False
 
+    def is_strike(self) -> bool:
+        if not self.is_completed():
+            return False
+
+        if self.first_attempt == 10:
+            return True
+
+        return False
+
     def is_bonus_necessary(self) -> bool:
-        return True if self.is_square() else False
+        return True if self.is_square() or self.is_strike() else False

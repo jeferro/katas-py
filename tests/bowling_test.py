@@ -27,6 +27,16 @@ def test_square():
     bowling.roll(3)
 
     bowling.roll(4)
-    bowling.roll(3)
+    bowling.roll(5)
 
-    assert bowling.score() == 21
+    assert bowling.score() == 23
+
+
+def test_strike():
+    bowling = Bowling()
+    bowling.roll(10)
+
+    bowling.roll(4)
+    bowling.roll(5)
+
+    assert bowling.score() == 28
