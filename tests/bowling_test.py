@@ -19,3 +19,14 @@ def test_score_several_frames():
     bowling.roll(1)
 
     assert bowling.score() == 11
+
+
+def test_square():
+    bowling = Bowling()
+    bowling.roll(7)
+    bowling.roll(3)
+
+    bowling.roll(4)
+    bowling.roll(3)
+
+    assert bowling.score() == 21

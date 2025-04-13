@@ -18,8 +18,14 @@ class Bowling(object):
     def roll(self,
              knocked_pins: int):
         current_frame = self.frames[self.active_frame]
+        previous_frame = None if self.active_frame == 0 else self.frames[self.active_frame - 1]
 
         current_frame.roll(knocked_pins)
+
+        if previous_frame \
+            and previous_frame.is_square() \
+            and current_frame.is_first_attempt():
+            previous_frame.add_bonus(knocked_pins)
 
         if current_frame.is_completed():
             self.active_frame += 1
