@@ -1,14 +1,15 @@
 from src.Dessert import Dessert
+from src.decorations.Decorator import Decorator
 
 
-class Peanut(Dessert):
+class Peanut(Decorator):
 
     def __init__(self,
                  dessert: Dessert):
-        self.dessert = dessert
+        super().__init__(dessert)
 
-    def price(self) -> float:
-        return self.dessert.price() + 0.2
+    def _decorator_price(self) -> float:
+        return 0.2
 
-    def name(self) -> str:
-        return f"{self.dessert.name()} with peanut"
+    def _decorator_name(self) -> str:
+        return "peanut"
