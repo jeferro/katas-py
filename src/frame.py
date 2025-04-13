@@ -9,31 +9,44 @@ class Frame:
 
     def roll(self,
              knocked_pins: int):
-        if self.first_attempt is None:
+        if not self.first_attempt:
             self.first_attempt = knocked_pins
             return
 
-        if self.second_attempt is None:
+        if not self.second_attempt:
             self.second_attempt = knocked_pins
 
     def add_bonus(self,
-                  bonus: int):
-        self.bonus = bonus
+                  next_frame):
+        if self.is_square():
+            self.bonus = next_frame.first_attempt
 
     def score(self):
         if self.is_completed():
             return self.first_attempt + self.second_attempt + self.bonus
 
         if self.first_attempt:
-            return self.first_attempt
+            return self.first_attempt + self.bonus
 
         return 0
 
     def is_completed(self) -> bool:
-        return True if self.first_attempt and self.second_attempt else False
+        if self.second_attempt:
+            return True
 
-    def is_first_attempt(self) -> bool:
-        return True if self.first_attempt and not self.second_attempt else False
+        if self.first_attempt == 10:
+            return True
+
+        return False
 
     def is_square(self) -> bool:
-        return True if self.score() == 10 and self.second_attempt else False
+        if not self.is_completed():
+            return False
+
+        if self.first_attempt + self.second_attempt == 10:
+            return True
+
+        return False
+
+    def is_bonus_necessary(self) -> bool:
+        return True if self.is_square() else False
