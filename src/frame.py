@@ -15,4 +15,13 @@ class Frame:
             self.second_attempt = knocked_pins
 
     def score(self):
-        return self.first_attempt + self.second_attempt
+        if self.is_completed():
+            return self.first_attempt + self.second_attempt
+
+        if self.first_attempt:
+            return self.first_attempt
+
+        return 0
+
+    def is_completed(self) -> bool:
+        return True if self.first_attempt and self.second_attempt else False
