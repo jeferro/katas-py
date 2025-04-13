@@ -1,5 +1,7 @@
+from src.Dessert import Dessert
 
-class Cupcake(object):
+
+class Cupcake(Dessert):
 
     def __init__(self):
         pass

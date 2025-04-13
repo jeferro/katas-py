@@ -1,5 +1,7 @@
+from src.Dessert import Dessert
 
-class Cookie(object):
+
+class Cookie(Dessert):
 
     def __init__(self):
         pass
