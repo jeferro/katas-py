@@ -8,9 +8,7 @@ class Yatzy:
 
     def score(self, dice, category: YatzyCategory) -> int:
         # calculate dice frequencies
-        dice_frequencies = {i: 0 for i in self.DICE_VALUES}
-        for die in dice:
-            dice_frequencies[die] += 1
+        dice_frequencies = self.calculate_dice_frequencies(dice)
 
         # calculate the score
         result = 0
@@ -142,6 +140,12 @@ class Yatzy:
                 result = full_house_result
 
         return result
+
+    def calculate_dice_frequencies(self, dice):
+        dice_frequencies = {i: 0 for i in self.DICE_VALUES}
+        for die in dice:
+            dice_frequencies[die] += 1
+        return dice_frequencies
 
     @staticmethod
     def score_change(dice):
