@@ -1,9 +1,6 @@
-# KATAS
+# Yatzy Refactoring
 
-Repository of the katas I have done. 
-
-Each kata is in a different PR with a commit for each step to solve it.
-
+Refactor code of yatzy game applying the technique "Replace command with function": https://sammancoaching.org/refactorings/command_to_function.html
 
 
 ## Requirements
