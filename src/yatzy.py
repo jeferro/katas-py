@@ -7,8 +7,6 @@ class Yatzy:
     DICE_VALUES = [6, 5, 4, 3, 2, 1]
 
     def score(self, dice, category: YatzyCategory) -> int:
-        # calculate dice frequencies
-        dice_frequencies = self.calculate_dice_frequencies(dice)
 
         # calculate the score
         result = 0
@@ -18,6 +16,7 @@ class Yatzy:
                 result = sum(dice)
 
             case YatzyCategory.YATZY:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score for yatzy if all dice are the same
                 yatzy_result = 0
@@ -28,29 +27,42 @@ class Yatzy:
 
             case YatzyCategory.ONES:
                 # sum all the ones
+                dice_frequencies = self.calculate_dice_frequencies(dice)
+
                 result = dice_frequencies[1]
 
             case YatzyCategory.TWOS:
                 # sum all the twos
+                dice_frequencies = self.calculate_dice_frequencies(dice)
+
                 result = dice_frequencies[2] * 2
 
             case YatzyCategory.THREES:
                 # sum all the threes
+                dice_frequencies = self.calculate_dice_frequencies(dice)
+
                 result = dice_frequencies[3] * 3
 
             case YatzyCategory.FOURS:
                 # sum all the fours
+                dice_frequencies = self.calculate_dice_frequencies(dice)
+
                 result = dice_frequencies[4] * 4
 
             case YatzyCategory.FIVES:
                 # sum all the fives
+                dice_frequencies = self.calculate_dice_frequencies(dice)
+
                 result = dice_frequencies[5] * 5
 
             case YatzyCategory.SIXES:
                 # sum all the sixes
+                dice_frequencies = self.calculate_dice_frequencies(dice)
+
                 result = dice_frequencies[6] * 6
 
             case YatzyCategory.PAIR:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score pair if two dice are the same
                 pair_result = 0
@@ -63,6 +75,7 @@ class Yatzy:
                 result = pair_result
 
             case YatzyCategory.THREE_OF_A_KIND:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score if three dice are the same
                 three_kind_result = 0
@@ -73,6 +86,7 @@ class Yatzy:
                 result = three_kind_result
 
             case YatzyCategory.FOUR_OF_A_KIND:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score if four dice are the same
                 four_kind_result = 0
@@ -83,6 +97,7 @@ class Yatzy:
                 result = four_kind_result
 
             case YatzyCategory.SMALL_STRAIGHT:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score if dice contains 1,2,3,4,5
                 small_straight_result = 0
@@ -99,6 +114,7 @@ class Yatzy:
                 result = small_straight_result
 
             case YatzyCategory.LARGE_STRAIGHT:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score if dice contains 2,3,4,5,6
                 large_straight_result = 0
@@ -114,6 +130,7 @@ class Yatzy:
                 result = large_straight_result
 
             case YatzyCategory.TWO_PAIRS:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score if there are two pairs
                 two_pair_result = 0
@@ -130,6 +147,7 @@ class Yatzy:
                 result = two_pair_result
 
             case YatzyCategory.FULL_HOUSE:
+                dice_frequencies = self.calculate_dice_frequencies(dice)
 
                 # score if there is a pair as well as three of a kind
                 full_house_result = 0
