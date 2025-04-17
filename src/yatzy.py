@@ -159,8 +159,9 @@ class Yatzy:
 
         return result
 
-    def calculate_dice_frequencies(self, dice):
-        dice_frequencies = {i: 0 for i in self.DICE_VALUES}
+    @staticmethod
+    def calculate_dice_frequencies(dice):
+        dice_frequencies = {i: 0 for i in Yatzy.DICE_VALUES}
         for die in dice:
             dice_frequencies[die] += 1
         return dice_frequencies
