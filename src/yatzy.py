@@ -145,60 +145,75 @@ class Yatzy:
 
     @staticmethod
     def score_change(dice):
-        return Yatzy().score(dice, YatzyCategory.CHANCE)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.CHANCE)
 
     @staticmethod
     def score_yatzy(dice):
-        return Yatzy().score(dice, YatzyCategory.YATZY)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.YATZY)
 
     @staticmethod
     def score_ones(dice):
-        return Yatzy().score(dice, YatzyCategory.ONES)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.ONES)
 
     @staticmethod
     def score_twos(dice):
-        return Yatzy().score(dice, YatzyCategory.TWOS)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.TWOS)
 
     @staticmethod
     def score_threes(dice):
-        return Yatzy().score(dice, YatzyCategory.THREES)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.THREES)
 
     @staticmethod
     def score_fours(dice):
-        return Yatzy().score(dice, YatzyCategory.FOURS)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.FOURS)
 
     @staticmethod
     def score_fives(dice):
-        return Yatzy().score(dice, YatzyCategory.FIVES)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.FIVES)
 
     @staticmethod
     def score_sixes(dice):
-        return Yatzy().score(dice, YatzyCategory.SIXES)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.SIXES)
 
     @staticmethod
     def score_pair(dice):
-        return Yatzy().score(dice, YatzyCategory.PAIR)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.PAIR)
 
     @staticmethod
     def score_two_pair(dice):
-        return Yatzy().score(dice, YatzyCategory.TWO_PAIRS)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.TWO_PAIRS)
 
     @staticmethod
     def score_three_of_a_kind(dice):
-        return Yatzy().score(dice, YatzyCategory.THREE_OF_A_KIND)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.THREE_OF_A_KIND)
 
     @staticmethod
     def score_four_a_kind(dice):
-        return Yatzy().score(dice, YatzyCategory.FOUR_OF_A_KIND)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.FOUR_OF_A_KIND)
 
     @staticmethod
     def score_small_straight(dice):
-        return Yatzy().score(dice, YatzyCategory.SMALL_STRAIGHT)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.SMALL_STRAIGHT)
 
     @staticmethod
     def score_straight(dice):
-        return Yatzy().score(dice, YatzyCategory.LARGE_STRAIGHT)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.LARGE_STRAIGHT)
 
     @staticmethod
     def score_full_house(dice):
-        return Yatzy().score(dice, YatzyCategory.FULL_HOUSE)
+        yatzy = Yatzy()
+        return yatzy.score(dice, YatzyCategory.FULL_HOUSE)
