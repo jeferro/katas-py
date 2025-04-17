@@ -77,9 +77,9 @@ def test_small_straight():
 
 
 def test_large_straight():
-    assert (20 == Yatzy.score_straight([6, 2, 3, 4, 5]))
-    assert (20 == Yatzy.score_straight([2, 3, 4, 5, 6]))
-    assert (0 == Yatzy.score_straight([1, 2, 2, 4, 5]))
+    assert (20 == Yatzy.score_large_straight([6, 2, 3, 4, 5]))
+    assert (20 == Yatzy.score_large_straight([2, 3, 4, 5, 6]))
+    assert (0 == Yatzy.score_large_straight([1, 2, 2, 4, 5]))
 
 
 def test_full_house():
