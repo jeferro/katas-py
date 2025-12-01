@@ -2,7 +2,9 @@
 
 Repository of the katas I have done. 
 
-Each kata is in a different module.
+Each kata is in a different module:
+
+* [Tire Pressure](./src/tire_presure/README.md)
 
 
 
