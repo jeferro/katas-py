@@ -2,7 +2,14 @@
 
 Repository of the katas I have done. 
 
-Each kata is in a different PR with a commit for each step to solve it.
+Each kata is in a different module:
+
+* [Bowling](src/bowling/README.md)
+* [Cupcake](src/cupcake/README.md)
+* [Parrot Refactoring](src/parrot_refactoring/README.md)
+* [Scorekeeper](src/scorekeeper/README.md)
+* [String Calculator](src/string_calculator/README.md)
+* [Tire Pressure](./src/tire_presure/README.md)
 
 
 
@@ -11,24 +18,7 @@ Each kata is in a different PR with a commit for each step to solve it.
 We need the next tools to develop application:
 
 * [ASDF](https://asdf-vm.com/)
-
-And dependencies:
-
-~~~bash
-sudo apt update
-sudo apt install build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl git \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-~~~
-
-Then, we install tools:
-
-~~~bash
-asdf plugin-add python
-asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
-asdf install
-~~~~
-
+* [Task](https://taskfile.dev/)
 
 
 ## Installation
@@ -36,14 +26,15 @@ asdf install
 We should install project environment:
 
 ~~~bash
-poetry install
+task install
 ~~~~
 
 
-## Run test
+## Test
 
-Execute below command to run tests of the project:
+Execute below command to execute test:
 
 ~~~bash
-poetry run pytest 
-~~~
+task test
+~~~~
+

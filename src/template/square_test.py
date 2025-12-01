@@ -1,5 +1,5 @@
 
-from src.square import Square
+from src.template.square import Square
 
 
 def test_area_calculation():

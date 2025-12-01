@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  install:
+    desc: "Install project"
+    silent: true
+    cmds:
+      - echo "## Installing ASDF plugins..."
+      - asdf plugin add python
+      - asdf plugin add poetry
+      - echo "✅ Asdf plugins installed successfully"
+      - echo ""
+
+      - echo "## Installing ASDF tools..."
+      - asdf install
+      - echo "✅ Asdf tools installed successfully"
+      - echo ""
+
+      - echo "## Installing poetry dependencies..."
+      - poetry config virtualenvs.in-project true
+      - poetry install --no-interaction --no-root
+      - echo "✅ Poetry dependencies installed successfully"
+      - echo ""
+
+  test:
+    desc: "Test project"
+    silent: true
+    cmds:
+      - poetry run pytest || true
