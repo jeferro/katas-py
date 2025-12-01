@@ -1,6 +1,6 @@
-from src.parrot.african_parrot import AfricanParrot
-from src.parrot.european_parrot import EuropeanParrot
-from src.parrot.norwegian_blue_parrot import NorwegianBlueParrot
+from src.parrot_refactoring.african_parrot import AfricanParrot
+from src.parrot_refactoring.european_parrot import EuropeanParrot
+from src.parrot_refactoring.norwegian_blue_parrot import NorwegianBlueParrot
 
 
 def test_speed_of_european_parrot():

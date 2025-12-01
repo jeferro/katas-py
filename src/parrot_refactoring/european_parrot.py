@@ -1,4 +1,4 @@
-from src.parrot.parrot import Parrot
+from src.parrot_refactoring.parrot import Parrot
 
 
 class EuropeanParrot(Parrot):
