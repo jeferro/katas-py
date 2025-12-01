@@ -5,6 +5,7 @@ Repository of the katas I have done.
 Each kata is in a different module:
 
 * [Tire Pressure](./src/tire_presure/README.md)
+* [Parrot](./src/parrot/README.md)
 
 
 
