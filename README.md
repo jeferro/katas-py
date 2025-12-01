@@ -10,6 +10,7 @@ Each kata is in a different module:
 * [Scorekeeper](src/scorekeeper/README.md)
 * [String Calculator](src/string_calculator/README.md)
 * [Tire Pressure](./src/tire_presure/README.md)
+* [Yatsy Refactoring](src/yatsy_refactoring/README.md)
 
 
 
