@@ -1,5 +1,5 @@
-from src.score_keeper.score_display import ScoreDisplay
-from src.score_keeper.score_keeper import ScoreKeeper
+from src.scorekeeper.score_display import ScoreDisplay
+from src.scorekeeper.score_keeper import ScoreKeeper
 
 
 def test_it_reports_score():

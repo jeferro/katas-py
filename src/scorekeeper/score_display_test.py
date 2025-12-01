@@ -1,4 +1,4 @@
-from src.score_keeper.score_display import ScoreDisplay
+from src.scorekeeper.score_display import ScoreDisplay
 
 
 def test_it_reports_the_initial_score():

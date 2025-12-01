@@ -1,4 +1,4 @@
-from src.score_keeper.observer import Observer
+from src.scorekeeper.observer import Observer
 
 
 class ScoreDisplay(Observer):
