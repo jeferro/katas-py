@@ -1,4 +1,4 @@
-# PARROT
+# PARROT REFACTORING
 
 Can you spot any code smells in this code? I'll give you a clue - a spot of Pol(l)ymorphism should improve matters!
 

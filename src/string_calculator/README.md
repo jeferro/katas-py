@@ -1,4 +1,4 @@
-# String Calculator
+# STRING CALCULATOR
 
 https://osherove.com/tdd-kata-1
 

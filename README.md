@@ -4,6 +4,7 @@ Repository of the katas I have done.
 
 Each kata is in a different module:
 
+* [Bowling](src/bowling/README.md)
 * [Cupcake](src/cupcake/README.md)
 * [Parrot Refactoring](src/parrot_refactoring/README.md)
 * [Scorekeeper](src/scorekeeper/README.md)

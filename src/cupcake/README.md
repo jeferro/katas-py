@@ -1,4 +1,4 @@
-# Cupcake Kata
+# CUPCAKE
 
 Este kata se hizo originalmente para implementar el patron decorador y el patrón composite.
 
