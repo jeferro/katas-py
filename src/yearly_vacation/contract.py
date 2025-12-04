@@ -5,8 +5,10 @@ class Contract(ABC):
 
     def __init__(self,
                  name: str,
+                 birthday: date,
                  start_date: date):
         self.name = name
+        self.birthday = birthday
         self.start_date = start_date
 
     @abstractmethod

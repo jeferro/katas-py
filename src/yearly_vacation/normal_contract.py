@@ -6,8 +6,10 @@ class NormalContract(Contract):
 
     def __init__(self,
                  name: str,
+                 birthday: date,
                  start_date: date):
         super().__init__(name,
+                         birthday,
                          start_date)
 
     def num_vacation_days(self,

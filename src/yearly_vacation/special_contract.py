@@ -6,9 +6,11 @@ class SpecialContract(Contract):
 
     def __init__(self,
                  name: str,
+                 birthday: date,
                  start_date: date,
                  vacation_days: int):
         super().__init__(name,
+                         birthday,
                          start_date)
 
         self.vacation_days = vacation_days
