@@ -1,9 +1,10 @@
+from abc import ABC, abstractmethod
 
-class Contract(object):
+class Contract(ABC):
 
     def __init__(self):
         pass
 
-    @staticmethod
-    def calculate_num_vacation():
-        return 24
+    @abstractmethod
+    def calculate_num_vacation(self):
+        pass
