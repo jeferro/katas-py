@@ -11,6 +11,7 @@ Each kata is in a different module:
 * [String Calculator](src/string_calculator/README.md)
 * [Tire Pressure](./src/tire_presure/README.md)
 * [Yatsy Refactoring](src/yatsy_refactoring/README.md)
+* [Yearly Vacation](src/yearly_vacation/README.md)
 
 
 
