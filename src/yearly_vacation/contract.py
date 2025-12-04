@@ -6,5 +6,5 @@ class Contract(ABC):
         pass
 
     @abstractmethod
-    def calculate_num_vacation(self):
+    def num_vacation_days(self):
         pass
