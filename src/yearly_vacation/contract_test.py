@@ -11,14 +11,16 @@ test_date = date.fromisoformat('2025-06-01')
 def test_24_days_on_normal_contract():
     start_date = date.fromisoformat('2024-01-01')
 
-    normal_contract = NormalContract(start_date)
+    normal_contract = NormalContract('Marco Gil',
+                                     start_date)
 
     assert normal_contract.num_vacation_days(test_date) == 24
 
 def test_special_contract_can_override_vacation_days():
     start_date = date.fromisoformat('2024-01-01')
 
-    special_contract = SpecialContract(start_date,
+    special_contract = SpecialContract('Marco Sanchez',
+                                       start_date,
                                        26)
 
     assert special_contract.num_vacation_days(test_date) == 26
@@ -26,13 +28,15 @@ def test_special_contract_can_override_vacation_days():
 def test_in_contract_which_starts_at_current_year_have_vacation_days_similar_to_number_of_months():
     start_date = date.fromisoformat('2025-01-01')
 
-    normal_contract = NormalContract(start_date)
+    normal_contract = NormalContract('Juan Perez',
+                                     start_date)
 
     assert normal_contract.num_vacation_days(test_date) == 6
 
 def test_additional_vacation_days_on_normal_contract():
     start_date = date.fromisoformat('2018-01-01')
 
-    normal_contract = NormalContract(start_date)
+    normal_contract = NormalContract('Laura Martinez',
+                                     start_date)
 
     assert normal_contract.num_vacation_days(test_date) == 30

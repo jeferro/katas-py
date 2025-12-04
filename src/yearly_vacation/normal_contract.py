@@ -5,8 +5,10 @@ from datetime import date
 class NormalContract(Contract):
 
     def __init__(self,
+                 name: str,
                  start_date: date):
-        super().__init__(start_date)
+        super().__init__(name,
+                         start_date)
 
     def num_vacation_days(self,
                           a_date: date):
