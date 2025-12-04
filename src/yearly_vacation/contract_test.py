@@ -48,3 +48,13 @@ def test_additional_vacation_days_on_normal_contract():
                                      start_date)
 
     assert normal_contract.num_vacation_days(test_date) == 30
+
+def test_additional_vacation_day_on_people_are_40():
+    birthday = date.fromisoformat('1966-01-26')
+    start_date = date.fromisoformat('2014-01-01')
+
+    normal_contract = NormalContract('Ana Gonzalez',
+                                     birthday,
+                                     start_date)
+
+    assert normal_contract.num_vacation_days(test_date) == 32
