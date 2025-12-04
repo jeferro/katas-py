@@ -1,4 +1,4 @@
-from src.yatsy_refactoring.yatzy import Yatzy
+from src.yatzy_refactoring.yatzy import Yatzy
 
 
 def test_chance_scores_sum_of_all_dice():
