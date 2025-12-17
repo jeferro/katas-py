@@ -1,7 +1,6 @@
 from src.import_users.user_importer import UserImporter
 
-user_importer = UserImporter()
-providers = user_importer.import_users()
+providers = UserImporter.import_users()
 
 # Print users
 print("*********************************************************************************")

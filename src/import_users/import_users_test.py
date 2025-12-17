@@ -1,6 +1,6 @@
+from src.import_users.user_importer import UserImporter
 
-from src.template.square import Square
 
-
-def test_import_users():
-    pass
+def test_import_users(snapshot):
+    result = UserImporter.import_users()
+    assert result == snapshot
