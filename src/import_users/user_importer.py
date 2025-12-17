@@ -1,18 +1,17 @@
-from src.import_users.user_fetchers.user_csv_fetcher import UserCsvFetcher
-from src.import_users.user_fetchers.user_web_fetcher import UserWebFetcher
+from typing import List
+
+from src.import_users.user_fetchers.user_fetcher import UserFetcher
 
 
 class UserImporter:
 
     def __init__(self,
-                 user_csv_fetcher: UserCsvFetcher,
-                 user_web_fetcher: UserWebFetcher):
-        self.user_csv_fetcher = user_csv_fetcher
-        self.user_web_fetcher = user_web_fetcher
+                 user_fetchers: List[UserFetcher]):
+        self.user_fetchers = user_fetchers
 
     def import_users(self):
-        csv_users = self.user_csv_fetcher.fetch()
+        users = []
+        for user_fetcher in self.user_fetchers:
+            users.extend(user_fetcher.fetch())
 
-        web_users = self.user_web_fetcher.fetch()
-
-        return csv_users + web_users
+        return users
