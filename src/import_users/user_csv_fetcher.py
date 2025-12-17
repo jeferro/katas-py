@@ -16,10 +16,6 @@ class UserCsvFetcher(UserFetcher):
             reader = csv.reader(f)
             csv_provider = list(reader)
 
-        csvProviders = []
-        for a in csv_provider:
-            csvProviders.append(csv_provider[0] + a)
-
         csv_provider.pop(0)  # Remove header column
 
         return csv_provider
