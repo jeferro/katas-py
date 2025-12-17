@@ -1,7 +1,7 @@
 import csv
 import os
 
-from src.import_users.user_fetcher import UserFetcher
+from src.import_users.user_fetchers.user_fetcher import UserFetcher
 
 
 class UserCsvFetcher(UserFetcher):

@@ -1,5 +1,5 @@
-from src.import_users.user_csv_fetcher import UserCsvFetcher
-from src.import_users.user_web_fetcher import UserWebFetcher
+from src.import_users.user_fetchers.user_csv_fetcher import UserCsvFetcher
+from src.import_users.user_fetchers.user_web_fetcher import UserWebFetcher
 
 
 class UserImporter:

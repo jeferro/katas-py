@@ -2,7 +2,7 @@ import urllib.request
 import json
 import datetime
 
-from src.import_users.user_fetcher import UserFetcher
+from src.import_users.user_fetchers.user_fetcher import UserFetcher
 
 
 class UserWebFetcher(UserFetcher):
