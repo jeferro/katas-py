@@ -10,7 +10,7 @@ USER_URL = 'https://randomuser.me/api/?inc=gender,name,email,location&results=5&
 getcurrentworkingDirectory = os.getcwd()
 
 # fields: ID, gender, Name ,country, postcode, email, Birthdate
-with open(os.path.join(getcurrentworkingDirectory, '../users.csv'), 'r') as f:
+with open(os.path.join(getcurrentworkingDirectory, 'users.csv'), 'r') as f:
     reader = csv.reader(f)
     csv_provider = list(reader)
 
