@@ -4,14 +4,15 @@ from src.import_users.user_web_fetcher import UserWebFetcher
 
 class UserImporter:
 
-    @staticmethod
-    def import_users():
-        user_csv_fetcher = UserCsvFetcher()
-        user_web_fetcher = UserWebFetcher()
+    def __init__(self,
+                 user_csv_fetcher: UserCsvFetcher,
+                 user_web_fetcher: UserWebFetcher):
+        self.user_csv_fetcher = user_csv_fetcher
+        self.user_web_fetcher = user_web_fetcher
 
-        csv_provider = user_csv_fetcher.fetch()
+    def import_users(self):
+        csv_users = self.user_csv_fetcher.fetch()
 
-        b = user_web_fetcher.fetch()
+        web_users = self.user_web_fetcher.fetch()
 
-        # merge arrays
-        return csv_provider + b
+        return csv_users + web_users
