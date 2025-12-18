@@ -6,6 +6,8 @@ Each kata is in a different module:
 
 * [Bowling](src/bowling/README.md)
 * [Cupcake](src/cupcake/README.md)
+* [DNI](src/dni/README.md)
+* [Import users](src/import_users/README.md)
 * [Parrot Refactoring](src/parrot_refactoring/README.md)
 * [Scorekeeper](src/scorekeeper/README.md)
 * [String Calculator](src/string_calculator/README.md)
