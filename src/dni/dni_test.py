@@ -32,27 +32,6 @@ def test_last_characters_should_be_a_letter():
         DNI.create_of_value(value="319701657")
 
 
-def test_letter_u_is_not_allowed():
-    with pytest.raises(ValidationError):
-        DNI.create_of_value(value="31970165U")
-
-
-def test_letter_i_is_not_allowed():
-    with pytest.raises(ValidationError):
-        DNI.create_of_value(value="31970165I")
-
-
-def test_letter_o_is_not_allowed():
-    with pytest.raises(ValidationError):
-        DNI.create_of_value(value="31970165O")
-
-
-def test_letter_ñ_is_not_allowed():
-    with pytest.raises(ValidationError):
-        DNI.create_of_value(value="31970165Ñ")
-
-
-
 def test_letter_validation():
     with pytest.raises(ValidationError):
         DNI.create_of_value(value="31970165A")

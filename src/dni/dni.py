@@ -4,8 +4,6 @@ from src.dni.validation_error import ValidationError
 
 
 class DNI(object):
-    _UNALLOWED_LETTERS = ["U", "I", "O", "Ñ"]
-
     _LETTERS = ["T",
                 "R",
                 "W",
@@ -55,9 +53,6 @@ class DNI(object):
 
                 if not last_character:
                     raise ValidationError(f"DNI last character must be a letter: {value}")
-
-                if last_character in DNI._UNALLOWED_LETTERS:
-                    raise ValidationError(f"DNI letter not allowed: {value}")
 
                 letter = DNI._calculate_letter(numbers)
 
