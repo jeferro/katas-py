@@ -14,18 +14,25 @@ class DNI(object):
         if len(value) != 9:
             raise ValidationError("DNI length must be 9: " + value)
 
-        numbers = value[:8]
+        numbers = []
+        letter = None
 
-        if not numbers.isnumeric():
-            raise ValidationError("DNI first 8 characters must be numeric: " + value)
+        for index, character in enumerate(value):
+            if index < 8:
+                if not character.isnumeric():
+                    raise ValidationError(f"DNI character in index {index} must be a numeric: " + value)
 
-        letter = value[8]
+                number = int(character)
 
-        if not letter.isalpha():
-            raise ValidationError("DNI last character must be numeric: " + value)
+                numbers.append(number)
+            else:
+                if not character.isalpha():
+                    raise ValidationError(f"DNI last character must be a letter: " + value)
 
-        if letter.upper() in DNI._UNALLOWED_LETTERS:
-            raise ValidationError("DNI letter not allowed: " + value)
+                letter = character.upper()
+
+                if letter in DNI._UNALLOWED_LETTERS:
+                    raise ValidationError("DNI letter not allowed: " + value)
 
         return DNI(value)
 
