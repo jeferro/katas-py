@@ -12,20 +12,20 @@ class DNI(object):
     @staticmethod
     def create_of_value(value: str):
         if len(value) != 9:
-            raise ValidationError("DNI length must be 9")
+            raise ValidationError("DNI length must be 9: " + value)
 
         numbers = value[:8]
 
         if not numbers.isnumeric():
-            raise ValidationError("DNI first 8 characters must be numeric")
+            raise ValidationError("DNI first 8 characters must be numeric: " + value)
 
         letter = value[8]
 
         if not letter.isalpha():
-            raise ValidationError("DNI last character must be numeric")
+            raise ValidationError("DNI last character must be numeric: " + value)
 
         if letter.upper() in DNI._UNALLOWED_LETTERS:
-            raise ValidationError("DNI letter not allowed")
+            raise ValidationError("DNI letter not allowed: " + value)
 
         return DNI(value)
 
