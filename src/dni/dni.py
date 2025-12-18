@@ -3,9 +3,11 @@ from src.dni.validation_error import ValidationError
 
 class DNI(object):
 
+    _UNALLOWED_LETTERS = ["U", "I", "O", "Ñ"]
+
     def __init__(self,
                  value: str):
-        self.value = value
+        self._value = value
 
     @staticmethod
     def create_of_value(value: str):
@@ -22,4 +24,10 @@ class DNI(object):
         if not letter.isalpha():
             raise ValidationError("DNI last character must be numeric")
 
+        if letter.upper() in DNI._UNALLOWED_LETTERS:
+            raise ValidationError("DNI letter not allowed")
+
         return DNI(value)
+
+    def value(self) -> str:
+        return self._value
