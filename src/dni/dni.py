@@ -29,8 +29,10 @@ class DNI(object):
                 "E"]
 
     def __init__(self,
-                 value: str):
-        self._value = value
+                 numbers: List[int],
+                 control_digit: str):
+        self._numbers = numbers
+        self._control_digit = control_digit
 
     @staticmethod
     def create_of_value(value: str):
@@ -38,7 +40,7 @@ class DNI(object):
             raise ValidationError(f"DNI length must be 9: {value}")
 
         numbers = []
-        letter = None
+        control_digit = None
 
         for index, character in enumerate(value):
             if index < 8:
@@ -54,19 +56,26 @@ class DNI(object):
                 if not last_character:
                     raise ValidationError(f"DNI last character must be a letter: {value}")
 
-                letter = DNI._calculate_letter(numbers)
+                control_digit = DNI._calculate_control_digit(numbers)
 
-                if last_character != letter:
-                    raise ValidationError(f"DNI letter invalid: {value}. Expected letter: {letter}")
+                if last_character != control_digit:
+                    raise ValidationError(f"DNI control digit invalid: {value}. Expected digit control: {control_digit}")
 
 
-        return DNI(value)
+        return DNI(numbers, control_digit)
 
     def value(self) -> str:
-        return self._value
+        output = ""
+
+        for number in self._numbers:
+            output += str(number)
+
+        output += str(self._control_digit)
+
+        return output
 
     @staticmethod
-    def _calculate_letter(numbers: List[int]) -> str:
+    def _calculate_control_digit(numbers: List[int]) -> str:
         sum = 0
         total_letters = len(DNI._LETTERS)
 
